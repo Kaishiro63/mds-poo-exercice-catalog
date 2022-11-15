@@ -20,6 +20,11 @@ class MovieController extends Controller {
         return view('movies.list', ['list' => $list]);
     }
 
+    public function random(){
+        $movie = Movie::inRandomOrder()->whereNotNull('poster')->first();
+        return view('movies.show', ['movie' => $movie]);
+    }
+
     public function show($id) {
         $movie = Movie::where('id', $id)->first();
         return view('movies.show', ['movie' => $movie]);
