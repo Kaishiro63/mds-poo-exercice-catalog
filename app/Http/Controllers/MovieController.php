@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 class MovieController extends Controller {
 
     public function list(){
-        $list = Movie::all()->take(20);
-        return view('movies.list', ['list' => $list]);
+        $query = Movie::query();
+        $pagination = $query->paginate(20);
+        return view('movies.list', ['pagination' => $pagination]);
     }
 
     public function show($id) {

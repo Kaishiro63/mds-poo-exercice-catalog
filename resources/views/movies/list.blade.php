@@ -12,15 +12,37 @@
 
     <!-- Styles -->
     <style>
+        @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+        a{
+            text-decoration: none;
+            color: black;
+        }
         .container {
             margin: auto;
             max-width: 900px;
         }
-
         .wrapper {
             display: flex;
             margin-top: 10px;
             margin-bottom: 10px;
+            background-color: #fff;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+            padding-right: 15px;
+        }
+        h1{
+            font-family: "Lato", Arial, sans-serif;
+            font-size: 30px;
+            font-weight: 700;
+            margin-top: 50px;
+            margin-bottom: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .underligne{
+            background-color: yellow;
+            height: 4px;
+            width: 160px;
+            margin-bottom: 50px;
         }
         img{
             width: 100px;
@@ -41,15 +63,21 @@
         }
     </style>
 </head>
-<body></body>
+<body>
     <div class="container">
-        @foreach ($list as $movie)
-            <div class="wrapper">
-                <img src="{{ $movie->poster }}" alt="{{ $movie->primaryTitle }}">
-                <p class="title">{{ $movie->primaryTitle }} ({{ $movie->startYear }})</p>
-                <p class="score">{{ $movie->averageRating }} /10</p>
-            </div>
+        <h1>Liste des meilleurs films :</h1><div class="underligne"></div>
+        @foreach ($pagination as $movie)
+            <a href="/movies/{{ $movie->id }}">
+                <div class="wrapper">
+                    <img src="{{ $movie->poster }}" alt="{{ $movie->primaryTitle }}">
+                    <p class="title">{{ $movie->primaryTitle }} ({{ $movie->startYear }})</p>
+                    <p class="score">{{ $movie->averageRating }} /10</p>
+                </div>
+            </a>
         @endforeach
+    </div>
+    <div>
+        {{ $pagination->links('movies.pagination') }}
     </div>
 </body>
 </html>
