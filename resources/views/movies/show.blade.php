@@ -12,105 +12,110 @@
 
     <!-- Styles -->
     <style>
-        .movie{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+        * {
+            margin: 0;
+            padding: 0;
         }
-        .container{
-            width: 100vw;
-            max-width: 1280px;
-            min-width: 1000px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin: 0 auto;
+        .movie-card {
+            font: 14px/22px "Lato", Arial, sans-serif;
+            color: #A9A8A3;
         }
-
-        .border{
-            height: 469px;
-            width: 340px;
-            background: transparent;
-            border-radius: 10px;
-            transition: border 1s;
+        .hero {
+            height: 342px;
+            margin:0;
             position: relative;
-        }
-
-        .border:hover{
-            border: 1px solid white;
-        }
-
-        .card{
-            height: 479px;
-            width: 350px;
-            background: grey;
-            border-radius: 10px;
-            transition: background 0.8s;
             overflow: hidden;
-            background: black;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            z-index:1;
+        }
+        .hero:before {
+            content:'';
+            width:100%; height:100%;
+            position:absolute;
+            overflow: hidden;
+            top:0; left:0;
+            background:red;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba( 0, 0, 0.5)), url({{ asset('images/background-cine.jpg') }});
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index:-1;
+            transform: skewY(-2.2deg);
+            transform-origin:0 0;
+        }
+        .cover {
+            position: absolute;
+            top: 160px;
+            left: 40px;
+            z-index: 2;
+        }
+        .details {
+            padding: 190px 0 0 380px;
+        }
+        .details .title1 {
+            color: white;
+            font-size: 44px;
+            margin-bottom: 13px;
             position: relative;
         }
-
-        .card0{
-            background: url('{{ $movie->poster }}');
-            background-repeat: no-repeat;
-            background-size: 350px;
-        }
-
-        .card0:hover{
-            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('{{ $movie->poster }}');
-            background-repeat: no-repeat;
-            background-size: 400px;
-        }
-
-        .card0:hover h2{
-            opacity: 1;
-        }
-
-        .card0:hover .one{
-            opacity: 1;
-        }
-
-        h2{
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 40px;
-            color: white;
-            margin: 20px;
-            opacity: 0;
-            transition: opacity 1s;
-        }
-
-        .one{
-            opacity: 0;
-            transition: opacity 1s;
-        }
-
-        .info{
+        .details .title1 span {
             position: absolute;
-            fill: #fff;
-            color: #fff;
-            height: 130px;
-            top: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            padding-left: 10px;
-            font-size: 20px;
+            top: 3px;
+            margin-left: 12px;
+            background: #C4AF3D;
+            border-radius: 5px;
+            color: #544C21;
+            font-size: 14px;
+            padding: 0px 4px;
         }
-        .desc{
-            margin-top: 50px;
-            max-width: 800px;
-            text-align: justify;
+        .title2 {
+            color: #C7C1BA;
+            font-size: 23px;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+        .votes img{
+            width: 15px;
+            position: relative;
+            top: 2px;
+            padding-right: 10px;
+        }
+        .description {
+            bottom: 0px;
+            height: 200px;
+            font-size: 16px;
+            line-height: 26px;
+            color: #B1B0AC;
+        }
+        .column {
+            max-width: 700px;
+            padding: 190px 0 0 380px;
+            padding-top: 30px;
         }
     </style>
 </head>
 <body>
-    <div class="movie">
+    <div class="movie-card">
+        <div class="container">
+          <img src="{{ $movie->poster }}" alt="cover" class="cover" />
+          <div class="hero">
+            <div class="details">
+              <div class="title1">{{ $movie->primaryTitle }}<span>{{ $movie->startYear }}</span></div>
+              <div class="title2">Durée du film : {{ $movie->runtimeMinutes }} minutes</div>
+              <span class="votes">Nombre de votes : {{ $movie->numVotes }} <br> {{ $movie->averageRating }}/10 <img src="{{asset('images/etoile.png')}}" alt="icon avis"></span>
+            </div>
+          </div>
+          <div class="description">
+            <div class="column">
+              <p><strong>Résumé : </strong><br><br>{{ $movie->plot }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
+
+
+{{-- <div class="movie">
         <h1>Survolez la carte pour plus d'info</h1>
         <div class="container">
             <div class="card card0">
@@ -126,6 +131,7 @@
             </div>
         </div>
         <p class="desc"><strong>Résumé : </strong><br><br>{{ $movie->plot }}</p>
-    </div>
-</body>
-</html>
+    </div> --}}
+
+
+    
