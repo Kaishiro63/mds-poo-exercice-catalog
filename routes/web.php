@@ -23,6 +23,6 @@ Route::get('/', function () {
 });
 
 Route::get('/movies/random', [MovieController::class, 'random']);
-Route::get('/movies/genres', [GenreController::class, 'list']);
+Route::get('/genres', [GenreController::class, 'list']);
 Route::get('/movies/{id}', [MovieController::class, 'show']);
 Route::get('/movies', [MovieController::class, 'list']);

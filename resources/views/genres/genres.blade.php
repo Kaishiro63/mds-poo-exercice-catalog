@@ -12,17 +12,56 @@
 
     <!-- Styles -->
     <style>
-
+         @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+        .container{
+            max-width: 1200px;
+            margin: auto;
+        }
+        .content{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .filtre{
+            font-family: "Lato", Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: yellow;
+            color: black;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            width: 100px;
+        }
+        .filtre:hover{
+            background-color: black;
+            color: yellow;
+            transition: 0.4s;
+        }
+        a{
+            text-decoration: none;
+        }
+        .title{
+            font-family: "Lato", Arial, sans-serif;
+            margin: 10px;
+            font-weight: 300;
+            font-size: 44px;
+        }
     </style>
 </head>
 <body>
-    <div>
-        <h2>Filtres</h2>
-        @foreach ($genres as $genre)
-            <div>
-                {{ $genre->label }}
-            </div>
-        @endforeach
+    @include('includes.navbar')
+    <div class="container">
+        <h2 class="title">Filtres</h2>
+        <div class="content">
+            @foreach ($genres as $genre)
+                <a href="/movies?genre={{ $genre->label }}" class="filtre">
+                    {{ $genre->label }}
+                </a>
+            @endforeach
+        </div>
     </div>
+    @include('includes.footer')
 </body>
 </html>
