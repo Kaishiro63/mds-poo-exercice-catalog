@@ -7,12 +7,12 @@
 
     <title>{{ config('app.name') }}</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
     <style>
         @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+        *{
+            margin: 0;
+            padding: 0;
+        }
         a{
             text-decoration: none;
             color: black;
@@ -64,9 +64,10 @@
     </style>
 </head>
 <body>
+    @include('includes.navbar')
     <div class="container">
         <h1>Liste des meilleurs films :</h1><div class="underligne"></div>
-        @foreach ($pagination as $movie)
+        @foreach ($list as $movie)
             <a href="/movies/{{ $movie->id }}">
                 <div class="wrapper">
                     <img src="{{ $movie->poster }}" alt="{{ $movie->primaryTitle }}">
@@ -77,7 +78,8 @@
         @endforeach
     </div>
     <div>
-        {{ $pagination->links('movies.pagination') }}
+        {{ $list->links('movies.pagination') }}
     </div>
+    @include('includes.footer')
 </body>
 </html>

@@ -1,0 +1,80 @@
+<style>
+    nav {
+        margin: 0 auto;
+        padding: 20px 0;
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+    nav ul {
+        list-style: none;
+        text-align: center;
+    }
+    nav ul li {
+        display: inline-block;
+    }
+    nav ul li a, .aleatoire a {
+        display: block;
+        text-decoration: none;
+        color: white;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin: 0 10px;
+        list-style: none;
+        font-family: sans-serif;
+        padding: 20px;
+    }
+    nav ul li a,
+    nav ul li a:after,
+    nav ul li a:before {
+        transition: all .5s;
+    }
+    nav ul li a:hover {
+        color: yellow;
+    }
+
+    nav.stroke ul li a{
+        position: relative;
+    }
+    nav.stroke ul li a:after{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 0%;
+        content: '.';
+        color: transparent;
+        background: yellow;
+        height: 1px;
+    }
+    nav.stroke ul li a:hover:after {
+        width: 100%;
+    }
+    .aleatoire{
+        background-color: yellow;
+        border-radius: 10px;
+        position: absolute;
+        right: 20px;
+        top: 18px;
+    }
+    .aleatoire a{
+        color: black;
+    }
+    .aleatoire a:hover{
+        color: white;
+    }
+    .aleatoire:hover{
+        background-color: transparent;
+        border: solid white;
+        transition: all .5s;
+    }
+
+</style>
+<nav class="stroke">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/movies">Film</a></li>
+      <li><a href="#">Serie</a></li>
+      <li><a href="/genres">Filtre par genre</a></li>
+    </ul>
+    <div class="aleatoire"><a href="/movies/random">FILM ALÉATOIRE</a></div>
+</nav>

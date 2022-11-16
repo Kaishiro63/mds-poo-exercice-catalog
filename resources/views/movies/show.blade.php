@@ -35,7 +35,7 @@
             overflow: hidden;
             top:0; left:0;
             background:red;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba( 0, 0, 0.5)), url({{ asset('images/background-cine.jpg') }});
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba( 0, 0, 0.1)), url({{ asset('images/background-cine.jpg') }});
             background-repeat: no-repeat;
             background-size: cover;
             z-index:-1;
@@ -49,7 +49,7 @@
             z-index: 2;
         }
         .details {
-            padding: 190px 0 0 380px;
+            padding: 80px 0 0 380px;
         }
         .details .title1 {
             color: white;
@@ -87,7 +87,7 @@
             color: #B1B0AC;
         }
         .column {
-            max-width: 700px;
+            max-width: 900px;
             padding: 190px 0 0 380px;
             padding-top: 30px;
         }
@@ -98,6 +98,7 @@
         <div class="container">
           <img src="{{ $movie->poster }}" alt="cover" class="cover" />
           <div class="hero">
+            @include('includes.navbar')
             <div class="details">
               <div class="title1">{{ $movie->primaryTitle }}<span>{{ $movie->startYear }}</span></div>
               <div class="title2">Durée du film : {{ $movie->runtimeMinutes }} minutes</div>
@@ -111,27 +112,6 @@
           </div>
         </div>
       </div>
+      @include('includes.footer')
 </body>
 </html>
-
-
-{{-- <div class="movie">
-        <h1>Survolez la carte pour plus d'info</h1>
-        <div class="container">
-            <div class="card card0">
-                <div class="border">
-                    <h2>{{ $movie->primaryTitle }}</h2>
-                    <div class="info">
-                        <p class="one">Date de sortie : {{ $movie->startYear }}</p>
-                        <p class="one">Durée du film : {{ $movie->runtimeMinutes }} minutes</p>
-                        <p class="one">Avis : {{ $movie->averageRating }}/10</p>
-                        <p class="one">Nombre de votes : {{ $movie->numVotes }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <p class="desc"><strong>Résumé : </strong><br><br>{{ $movie->plot }}</p>
-    </div> --}}
-
-
-    
