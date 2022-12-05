@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>{{ config('app.name') }}</title>
 
     <style>
@@ -68,7 +67,7 @@
     <div class="container">
         <h1>Liste des meilleurs séries :</h1><div class="underligne"></div>
         @foreach ($list as $series)
-            <a href="/movies/{{ $series->id }}">
+            <a href="/series/{{ $series->id }}">
                 <div class="wrapper">
                     <img src="{{ $series->poster }}" alt="{{ $series->primaryTitle }}">
                     <p class="title">{{ $series->primaryTitle }} ({{ $series->startYear }})</p>

@@ -91,18 +91,18 @@
 <body>
     <div class="movie-card">
         <div class="container">
-          <img src="{{ $movie->poster }}" alt="cover" class="cover" />
+          <img src="{{ $series->poster }}" alt="cover" class="cover" />
           <div class="hero">
             @include('includes.navbar')
             <div class="details">
-              <div class="title1">{{ $movie->primaryTitle }}<span>{{ $movie->startYear }}</span></div>
-              <div class="title2">Durée du film : {{ $movie->runtimeMinutes }} minutes</div>
-              <span class="votes">Nombre de votes : {{ $movie->numVotes }} <br> {{ $movie->averageRating }}/10 <img src="{{asset('images/etoile.png')}}" alt="icon avis"></span>
+              <div class="title1">{{ $series->primaryTitle }}<span>{{ $series->startYear }}</span></div>
+              <div class="title2">Durée de la série : {{ $series->runtimeMinutes }} minutes</div>
+              <span class="votes">Nombre de votes : {{ $series->numVotes }} <br> {{ $series->averageRating }}/10 <img src="{{asset('images/etoile.png')}}" alt="icon avis"></span>
             </div>
           </div>
           <div class="description">
             <div class="column">
-              <p><strong>Résumé : </strong><br><br>{{ $movie->plot }}</p>
+              <p><strong>Résumé : </strong><br><br>{{ $series->plot }}</p>
             </div>
           </div>
         </div>

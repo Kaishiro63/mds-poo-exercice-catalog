@@ -26,4 +26,14 @@ class SeriesController extends Controller
         $list = $query->paginate(20);
         return view('series.list', ['list' => $list]);
     }
+
+    public function random() {
+        $series = Series::inRandomOrder()->whereNotNull('poster')->first();
+        return view('series.show', ['series' => $series]);
+    }
+
+    public function show($id) {
+        $series = Series::where('id', $id)->first();
+        return view('series.show', ['series' => $series]);
+    }
 }
