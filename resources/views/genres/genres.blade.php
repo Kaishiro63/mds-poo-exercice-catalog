@@ -19,8 +19,13 @@
             padding: 0;
         }
         .container{
+            display: flex;
             max-width: 1200px;
             margin: auto;
+        }
+        .film, .series{
+            margin-left: 20px;
+            margin-right: 20px;
         }
         .content{
             display: flex;
@@ -58,13 +63,25 @@
 <body>
     @include('includes.navbar')
     <div class="container">
-        <h2 class="title">Filtres</h2>
-        <div class="content">
-            @foreach ($genres as $genre)
-                <a href="/movies?genre={{ $genre->label }}" class="filtre">
-                    {{ $genre->label }}
-                </a>
-            @endforeach
+        <div class="film">
+            <h2 class="title">Filtres Film</h2>
+            <div class="content">
+                @foreach ($genres as $genre)
+                    <a href="/movies?genre={{ $genre->label }}" class="filtre">
+                        {{ $genre->label }}
+                    </a>
+                @endforeach
+            </div>
+        </div>
+        <div class="series">
+            <h2 class="title">Filtres Séries</h2>
+            <div class="content">
+                @foreach ($genres as $genre)
+                    <a href="/series?genre={{ $genre->label }}" class="filtre">
+                        {{ $genre->label }}
+                    </a>
+                @endforeach
+            </div>
         </div>
     </div>
     @include('includes.footer')

@@ -66,13 +66,13 @@
 <body>
     @include('includes.navbar')
     <div class="container">
-        <h1>Liste des meilleurs films :</h1><div class="underligne"></div>
-        @foreach ($list as $movie)
-            <a href="/movies/{{ $movie->id }}">
+        <h1>Liste des meilleurs séries :</h1><div class="underligne"></div>
+        @foreach ($list as $series)
+            <a href="/movies/{{ $series->id }}">
                 <div class="wrapper">
-                    <img src="{{ $movie->poster }}" alt="{{ $movie->primaryTitle }}">
-                    <p class="title">{{ $movie->primaryTitle }} ({{ $movie->startYear }})</p>
-                    <p class="score">{{ $movie->averageRating }} /10</p>
+                    <img src="{{ $series->poster }}" alt="{{ $series->primaryTitle }}">
+                    <p class="title">{{ $series->primaryTitle }} ({{ $series->startYear }})</p>
+                    <p class="score">{{ $series->averageRating }} /10</p>
                 </div>
             </a>
         @endforeach

@@ -31,7 +31,7 @@ justify-content:center;
 position:relative;
 }
 
-.top_header section{
+.top_header section, .top_header section a {
 display:flex;
 align-items:center;
 justify-content:center;
@@ -40,6 +40,7 @@ width:100%;
 
 .top_header span{
 padding:0 1rem;
+color: white;
 }
 
 .top_header .fa{
@@ -91,19 +92,23 @@ color:rgba(255,255,255,1);
             <span>Lyon, 69003</span>
         </section>
         <section>
-            <span><i class="fa fa-phone"></i></span>
-            <span>07 62 94 20 02</span>
+            <a href="tel:+33762942002">
+                <span><i class="fa fa-phone"></i></span>
+                <span>07 62 94 20 02</span>
+            </a>
         </section>
         <section>
-            <span><i class="fa fa-envelope"></i></span>
-            <span>quentin.gouttesoulard63@gmail.com</span>
+            <a href="mailto:quentin.gouttesoulard63@gmail.com">
+                <span><i class="fa fa-envelope"></i></span>
+                <span>quentin.gouttesoulard63@gmail.com</span>
+            </a>
         </section>
     </div>
     <div class="bottom_content">
         <section>
             <a href="/">Home</a>
             <a href="/movies">Film</a>
-            <a href="#">Serie</a>
+            <a href="/series">Serie</a>
             <a href="/genres">Filtre par genre</a>
         </section>
     </div>
@@ -111,8 +116,8 @@ color:rgba(255,255,255,1);
         <div class="bottom_content">
             <section>
                 <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/quentin_gtslr/"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/quentin-gouttesoulard/"><i class="fa fa-linkedin"></i></a>
             </section>
         </div>
     </footer>
