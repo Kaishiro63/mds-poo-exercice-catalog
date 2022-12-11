@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Episode;
 use App\Models\Series;
 use Illuminate\Http\Request;
 
@@ -34,6 +35,8 @@ class SeriesController extends Controller
 
     public function show($id) {
         $series = Series::where('id', $id)->first();
-        return view('series.show', ['series' => $series]);
+        $season = Episode::query()->where('series_id', $id)->groupBy('season_num')->get(['season_num']);
+
+        return view('series.show', ['series' => $series, 'season' => $season]);
     }
 }

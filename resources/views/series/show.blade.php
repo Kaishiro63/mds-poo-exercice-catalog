@@ -107,6 +107,13 @@
           </div>
         </div>
       </div>
+      <div>
+        {{-- @foreach ($season as $seasons)
+            <a href="/series/{{ $series->id }}/season/{{ $season->id }}">
+                <h3></h3>
+            </a>
+        @endforeach --}}
+      </div>
       @include('includes.footer')
 </body>
 </html>

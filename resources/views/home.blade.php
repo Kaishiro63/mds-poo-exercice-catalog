@@ -30,7 +30,7 @@
             font-weight: 900;
 
         }
-        a{
+        .test a{
             list-style: none;
             text-decoration: none;
             color: white;
@@ -107,19 +107,6 @@
                     </div>
                 </div>
             </a>
-        </div>
-    </div>
-    <div class="container">
-        <h1>{{ config('app.name') }}</h1>
-
-        <div class="wrapper">
-            @foreach ($movies as $movie)
-            <div>
-                <a href="/movies/{{ $movie->id }}">
-                    <img src="{{ $movie->poster }}" alt="{{ $movie->primaryTitle }}">
-                </a>
-            </div>
-            @endforeach
         </div>
     </div>
     @include('includes.footer')

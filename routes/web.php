@@ -30,3 +30,5 @@ Route::get('/movies/{id}', [MovieController::class, 'show']);
 Route::get('/series/{id}', [SeriesController::class, 'show']);
 Route::get('/movies', [MovieController::class, 'list']);
 Route::get('/series', [SeriesController::class, 'list']);
+Route::get('/series/{id}/season/{season_num}', [SeriesController::class, 'season']);
+Route::get('/series/{id}/season/{season_num}/episode/{episode_num}', [SeriesController::class, 'episode']);
